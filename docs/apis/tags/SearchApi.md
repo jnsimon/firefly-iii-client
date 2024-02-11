@@ -19,16 +19,17 @@ Search for accounts
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import search_api
+from firefly_iii_client.model.not_found_response import NotFoundResponse
 from firefly_iii_client.model.account_type_filter import AccountTypeFilter
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
 from firefly_iii_client.model.account_array import AccountArray
 from firefly_iii_client.model.account_search_field_filter import AccountSearchFieldFilter
-from firefly_iii_client.model.internal_exception import InternalException
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
 # See configuration.py for a list of all supported configuration parameters.
@@ -45,6 +46,11 @@ configuration = firefly_iii_client.Configuration(
 configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
@@ -70,6 +76,7 @@ with firefly_iii_client.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     query_params = {
+        'limit': 10,
         'page': 1,
         'query': "checking",
         'type': AccountTypeFilter("all"),
@@ -104,18 +111,26 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+limit | LimitSchema | | optional
 page | PageSchema | | optional
 query | QuerySchema | | 
 type | TypeSchema | | optional
 field | FieldSchema | | 
 
 
+# LimitSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
+
 # PageSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | 
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
 # QuerySchema
 
@@ -184,7 +199,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### search_accounts.ApiResponseFor401
@@ -197,7 +212,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### search_accounts.ApiResponseFor404
@@ -210,7 +225,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### search_accounts.ApiResponseFor500
@@ -223,12 +238,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -243,13 +258,14 @@ Searches through the users transactions.
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import search_api
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
-from firefly_iii_client.model.internal_exception import InternalException
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.not_found_response import NotFoundResponse
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 from firefly_iii_client.model.transaction_array import TransactionArray
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
@@ -267,6 +283,11 @@ configuration = firefly_iii_client.Configuration(
 configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
@@ -291,8 +312,9 @@ with firefly_iii_client.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     query_params = {
-        'query': "groceries",
+        'limit': 10,
         'page': 1,
+        'query': "groceries",
     }
     header_params = {
         'X-Trace-Id': "X-Trace-Id_example",
@@ -323,9 +345,24 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-query | QuerySchema | | 
+limit | LimitSchema | | optional
 page | PageSchema | | optional
+query | QuerySchema | | 
 
+
+# LimitSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
+
+# PageSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
 # QuerySchema
 
@@ -333,13 +370,6 @@ page | PageSchema | | optional
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
-
-# PageSchema
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | 
 
 ### header_params
 #### RequestHeaderParams
@@ -389,7 +419,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### search_transactions.ApiResponseFor401
@@ -402,7 +432,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### search_transactions.ApiResponseFor404
@@ -415,7 +445,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### search_transactions.ApiResponseFor500
@@ -428,12 +458,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 

@@ -8,12 +8,12 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**name** | str,  | str,  |  | 
 **account_id** | str,  | str,  | The ID of the asset account this piggy bank is connected to. | [optional] 
 **active** | bool,  | BoolClass,  |  | [optional] 
 **currency_code** | str,  | str,  |  | [optional] 
 **currency_id** | str,  | str,  |  | [optional] 
 **current_amount** | str,  | str,  |  | [optional] 
+**name** | str,  | str,  |  | [optional] 
 **notes** | None, str,  | NoneClass, str,  |  | [optional] 
 **object_group_id** | None, str,  | NoneClass, str,  | The group ID of the group this object is part of. NULL if no group. | [optional] 
 **object_group_title** | None, str,  | NoneClass, str,  | The name of the group. NULL if no group. | [optional] 

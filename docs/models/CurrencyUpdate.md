@@ -10,7 +10,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **code** | str,  | str,  | The currency code | [optional] 
 **decimal_places** | decimal.Decimal, int,  | decimal.Decimal,  | How many decimals to use when displaying this currency. Between 0 and 16. | [optional] value must be a 32 bit integer
-**default** | bool,  | BoolClass,  | If the currency must be the default for the user. You can only submit TRUE. | [optional] must be one of [True, ] 
+**default** | bool,  | BoolClass,  | If the currency must be the default for the user. You can only submit TRUE. Submitting FALSE will not drop this currency as the default currency, because then the system would be without one. | [optional] must be one of [True, ] 
 **enabled** | bool,  | BoolClass,  | If the currency is enabled | [optional] 
 **name** | str,  | str,  | The currency name | [optional] 
 **symbol** | str,  | str,  | The currency symbol | [optional] 

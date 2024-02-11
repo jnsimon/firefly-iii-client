@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**list_links_by_journal**](#list_links_by_journal) | **get** /v1/transaction-journals/{id}/links | Lists all the transaction links for an individual journal (individual split).
 [**list_transaction**](#list_transaction) | **get** /v1/transactions | List all the user&#x27;s transactions. 
 [**store_transaction**](#store_transaction) | **post** /v1/transactions | Store a new transaction
-[**update_transaction**](#update_transaction) | **put** /v1/transactions/{id} | Update existing transaction. For more information, see https://docs.firefly-iii.org/firefly-iii/api/specials
+[**update_transaction**](#update_transaction) | **put** /v1/transactions/{id} | Update existing transaction. For more information, see https://docs.firefly-iii.org/references/firefly-iii/api/specials/
 
 # **delete_transaction**
 <a id="delete_transaction"></a>
@@ -27,13 +27,14 @@ Delete a transaction.
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import transactions_api
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
-from firefly_iii_client.model.internal_exception import InternalException
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.not_found_response import NotFoundResponse
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
 # See configuration.py for a list of all supported configuration parameters.
@@ -50,6 +51,11 @@ configuration = firefly_iii_client.Configuration(
 configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
@@ -154,7 +160,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### delete_transaction.ApiResponseFor401
@@ -167,7 +173,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### delete_transaction.ApiResponseFor404
@@ -180,7 +186,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### delete_transaction.ApiResponseFor500
@@ -193,12 +199,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -213,13 +219,14 @@ Delete an individual journal (split) from a transaction.
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import transactions_api
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
-from firefly_iii_client.model.internal_exception import InternalException
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.not_found_response import NotFoundResponse
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
 # See configuration.py for a list of all supported configuration parameters.
@@ -236,6 +243,11 @@ configuration = firefly_iii_client.Configuration(
 configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
@@ -340,7 +352,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### delete_transaction_journal.ApiResponseFor401
@@ -353,7 +365,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### delete_transaction_journal.ApiResponseFor404
@@ -366,7 +378,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### delete_transaction_journal.ApiResponseFor500
@@ -379,12 +391,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -399,14 +411,15 @@ Get a single transaction.
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import transactions_api
 from firefly_iii_client.model.transaction_single import TransactionSingle
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
-from firefly_iii_client.model.internal_exception import InternalException
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.not_found_response import NotFoundResponse
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
 # See configuration.py for a list of all supported configuration parameters.
@@ -423,6 +436,11 @@ configuration = firefly_iii_client.Configuration(
 configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
@@ -535,7 +553,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### get_transaction.ApiResponseFor401
@@ -548,7 +566,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### get_transaction.ApiResponseFor404
@@ -561,7 +579,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### get_transaction.ApiResponseFor500
@@ -574,12 +592,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -594,14 +612,15 @@ Get a single transaction by underlying journal (split).
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import transactions_api
 from firefly_iii_client.model.transaction_single import TransactionSingle
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
-from firefly_iii_client.model.internal_exception import InternalException
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.not_found_response import NotFoundResponse
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
 # See configuration.py for a list of all supported configuration parameters.
@@ -618,6 +637,11 @@ configuration = firefly_iii_client.Configuration(
 configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
@@ -730,7 +754,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### get_transaction_by_journal.ApiResponseFor401
@@ -743,7 +767,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### get_transaction_by_journal.ApiResponseFor404
@@ -756,7 +780,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### get_transaction_by_journal.ApiResponseFor500
@@ -769,12 +793,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -789,14 +813,15 @@ Lists all attachments.
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import transactions_api
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
+from firefly_iii_client.model.not_found_response import NotFoundResponse
 from firefly_iii_client.model.attachment_array import AttachmentArray
-from firefly_iii_client.model.internal_exception import InternalException
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
 # See configuration.py for a list of all supported configuration parameters.
@@ -813,6 +838,11 @@ configuration = firefly_iii_client.Configuration(
 configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
@@ -843,6 +873,7 @@ with firefly_iii_client.ApiClient(configuration) as api_client:
         'id': "123",
     }
     query_params = {
+        'limit': 10,
         'page': 1,
     }
     header_params = {
@@ -876,15 +907,23 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+limit | LimitSchema | | optional
 page | PageSchema | | optional
 
+
+# LimitSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
 # PageSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | 
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
 ### header_params
 #### RequestHeaderParams
@@ -948,7 +987,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### list_attachment_by_transaction.ApiResponseFor401
@@ -961,7 +1000,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### list_attachment_by_transaction.ApiResponseFor404
@@ -974,7 +1013,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### list_attachment_by_transaction.ApiResponseFor500
@@ -987,12 +1026,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1007,14 +1046,15 @@ Lists all piggy bank events.
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import transactions_api
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
-from firefly_iii_client.model.internal_exception import InternalException
+from firefly_iii_client.model.not_found_response import NotFoundResponse
 from firefly_iii_client.model.piggy_bank_event_array import PiggyBankEventArray
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
 # See configuration.py for a list of all supported configuration parameters.
@@ -1031,6 +1071,11 @@ configuration = firefly_iii_client.Configuration(
 configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
@@ -1061,6 +1106,7 @@ with firefly_iii_client.ApiClient(configuration) as api_client:
         'id': "123",
     }
     query_params = {
+        'limit': 10,
         'page': 1,
     }
     header_params = {
@@ -1094,15 +1140,23 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+limit | LimitSchema | | optional
 page | PageSchema | | optional
 
+
+# LimitSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
 # PageSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | 
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
 ### header_params
 #### RequestHeaderParams
@@ -1166,7 +1220,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### list_event_by_transaction.ApiResponseFor401
@@ -1179,7 +1233,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### list_event_by_transaction.ApiResponseFor404
@@ -1192,7 +1246,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### list_event_by_transaction.ApiResponseFor500
@@ -1205,12 +1259,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1225,13 +1279,14 @@ Lists all the transaction links for an individual journal (a split). Don't use t
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import transactions_api
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
-from firefly_iii_client.model.internal_exception import InternalException
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.not_found_response import NotFoundResponse
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 from firefly_iii_client.model.transaction_link_array import TransactionLinkArray
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
@@ -1249,6 +1304,11 @@ configuration = firefly_iii_client.Configuration(
 configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
@@ -1279,6 +1339,7 @@ with firefly_iii_client.ApiClient(configuration) as api_client:
         'id': "123",
     }
     query_params = {
+        'limit': 10,
         'page': 1,
     }
     header_params = {
@@ -1312,15 +1373,23 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+limit | LimitSchema | | optional
 page | PageSchema | | optional
 
+
+# LimitSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
 # PageSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | 
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
 ### header_params
 #### RequestHeaderParams
@@ -1384,7 +1453,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### list_links_by_journal.ApiResponseFor401
@@ -1397,7 +1466,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### list_links_by_journal.ApiResponseFor404
@@ -1410,7 +1479,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### list_links_by_journal.ApiResponseFor500
@@ -1423,12 +1492,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1443,14 +1512,15 @@ List all the user's transactions.
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import transactions_api
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
+from firefly_iii_client.model.not_found_response import NotFoundResponse
 from firefly_iii_client.model.transaction_type_filter import TransactionTypeFilter
-from firefly_iii_client.model.internal_exception import InternalException
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 from firefly_iii_client.model.transaction_array import TransactionArray
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
@@ -1469,6 +1539,11 @@ configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
 )
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1476,6 +1551,7 @@ with firefly_iii_client.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     query_params = {
+        'limit': 10,
         'page': 1,
         'start': "Mon Sep 17 00:00:00 UTC 2018",
         'end': "Mon Sep 17 00:00:00 UTC 2018",
@@ -1510,18 +1586,26 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+limit | LimitSchema | | optional
 page | PageSchema | | optional
 start | StartSchema | | optional
 end | EndSchema | | optional
 type | TypeSchema | | optional
 
 
+# LimitSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
+
 # PageSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | 
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
 # StartSchema
 
@@ -1591,7 +1675,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### list_transaction.ApiResponseFor401
@@ -1604,7 +1688,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### list_transaction.ApiResponseFor404
@@ -1617,7 +1701,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### list_transaction.ApiResponseFor500
@@ -1630,12 +1714,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1650,16 +1734,17 @@ Creates a new transaction. The data required can be submitted as a JSON body or 
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import transactions_api
 from firefly_iii_client.model.transaction_single import TransactionSingle
-from firefly_iii_client.model.validation_error import ValidationError
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
+from firefly_iii_client.model.not_found_response import NotFoundResponse
 from firefly_iii_client.model.transaction_store import TransactionStore
-from firefly_iii_client.model.internal_exception import InternalException
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.validation_error_response import ValidationErrorResponse
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
 # See configuration.py for a list of all supported configuration parameters.
@@ -1676,6 +1761,11 @@ configuration = firefly_iii_client.Configuration(
 configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
@@ -1894,7 +1984,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### store_transaction.ApiResponseFor401
@@ -1907,7 +1997,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### store_transaction.ApiResponseFor404
@@ -1920,7 +2010,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### store_transaction.ApiResponseFor422
@@ -1933,7 +2023,7 @@ headers | Unset | headers were not defined |
 # SchemaFor422ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ValidationError**](../../models/ValidationError.md) |  | 
+[**ValidationErrorResponse**](../../models/ValidationErrorResponse.md) |  | 
 
 
 #### store_transaction.ApiResponseFor500
@@ -1946,12 +2036,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1959,23 +2049,24 @@ Type | Description  | Notes
 <a id="update_transaction"></a>
 > TransactionSingle update_transaction(idtransaction_update)
 
-Update existing transaction. For more information, see https://docs.firefly-iii.org/firefly-iii/api/specials
+Update existing transaction. For more information, see https://docs.firefly-iii.org/references/firefly-iii/api/specials/
 
 Update an existing transaction.
 
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import transactions_api
 from firefly_iii_client.model.transaction_single import TransactionSingle
-from firefly_iii_client.model.validation_error import ValidationError
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
+from firefly_iii_client.model.not_found_response import NotFoundResponse
 from firefly_iii_client.model.transaction_update import TransactionUpdate
-from firefly_iii_client.model.internal_exception import InternalException
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.validation_error_response import ValidationErrorResponse
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
 # See configuration.py for a list of all supported configuration parameters.
@@ -1992,6 +2083,11 @@ configuration = firefly_iii_client.Configuration(
 configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
@@ -2065,7 +2161,7 @@ with firefly_iii_client.ApiClient(configuration) as api_client:
         ],
     )
     try:
-        # Update existing transaction. For more information, see https://docs.firefly-iii.org/firefly-iii/api/specials
+        # Update existing transaction. For more information, see https://docs.firefly-iii.org/references/firefly-iii/api/specials/
         api_response = api_instance.update_transaction(
             path_params=path_params,
             header_params=header_params,
@@ -2143,7 +2239,7 @@ with firefly_iii_client.ApiClient(configuration) as api_client:
         ],
     )
     try:
-        # Update existing transaction. For more information, see https://docs.firefly-iii.org/firefly-iii/api/specials
+        # Update existing transaction. For more information, see https://docs.firefly-iii.org/references/firefly-iii/api/specials/
         api_response = api_instance.update_transaction(
             path_params=path_params,
             header_params=header_params,
@@ -2243,7 +2339,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### update_transaction.ApiResponseFor401
@@ -2256,7 +2352,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### update_transaction.ApiResponseFor404
@@ -2269,7 +2365,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### update_transaction.ApiResponseFor422
@@ -2282,7 +2378,7 @@ headers | Unset | headers were not defined |
 # SchemaFor422ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ValidationError**](../../models/ValidationError.md) |  | 
+[**ValidationErrorResponse**](../../models/ValidationErrorResponse.md) |  | 
 
 
 #### update_transaction.ApiResponseFor500
@@ -2295,12 +2391,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 

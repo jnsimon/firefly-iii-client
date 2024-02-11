@@ -25,11 +25,11 @@ import frozendict  # noqa: F401
 
 from firefly_iii_client import schemas  # noqa: F401
 
+from firefly_iii_client.model.not_found_response import NotFoundResponse
 from firefly_iii_client.model.autocomplete_transaction_array import AutocompleteTransactionArray
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
-from firefly_iii_client.model.internal_exception import InternalException
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 
 from . import path
 
@@ -94,6 +94,7 @@ request_header_x_trace_id = api_client.HeaderParameter(
 )
 _auth = [
     'firefly_iii_auth',
+    'local_bearer_auth',
 ]
 SchemaFor200ResponseBodyApplicationJson = AutocompleteTransactionArray
 
@@ -114,7 +115,7 @@ _response_for_200 = api_client.OpenApiResponse(
             schema=SchemaFor200ResponseBodyApplicationJson),
     },
 )
-SchemaFor400ResponseBodyApplicationJson = BadRequest
+SchemaFor400ResponseBodyApplicationJson = BadRequestResponse
 
 
 @dataclass
@@ -133,7 +134,7 @@ _response_for_400 = api_client.OpenApiResponse(
             schema=SchemaFor400ResponseBodyApplicationJson),
     },
 )
-SchemaFor401ResponseBodyApplicationJson = Unauthenticated
+SchemaFor401ResponseBodyApplicationJson = UnauthenticatedResponse
 
 
 @dataclass
@@ -152,7 +153,7 @@ _response_for_401 = api_client.OpenApiResponse(
             schema=SchemaFor401ResponseBodyApplicationJson),
     },
 )
-SchemaFor404ResponseBodyApplicationJson = NotFound
+SchemaFor404ResponseBodyApplicationJson = NotFoundResponse
 
 
 @dataclass
@@ -171,7 +172,7 @@ _response_for_404 = api_client.OpenApiResponse(
             schema=SchemaFor404ResponseBodyApplicationJson),
     },
 )
-SchemaFor500ResponseBodyApplicationJson = InternalException
+SchemaFor500ResponseBodyApplicationJson = InternalExceptionResponse
 
 
 @dataclass

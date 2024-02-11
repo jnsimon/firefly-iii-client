@@ -12,7 +12,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **code** | str,  | str,  |  | 
 **name** | str,  | str,  |  | 
 **decimal_places** | decimal.Decimal, int,  | decimal.Decimal,  | Supports 0-16 decimals. | [optional] value must be a 32 bit integer
-**default** | bool,  | BoolClass,  | Make this currency the default currency. | [optional] 
+**default** | bool,  | BoolClass,  | Make this currency the default currency. You can set this value to FALSE, in which case nothing will change to the default currency. If you set it to TRUE, the current default currency will no longer be the default currency. | [optional] 
 **enabled** | bool,  | BoolClass,  | Defaults to true | [optional] if omitted the server will use the default value of True
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 

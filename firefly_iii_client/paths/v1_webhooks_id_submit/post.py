@@ -80,6 +80,7 @@ request_path_id = api_client.PathParameter(
 )
 _auth = [
     'firefly_iii_auth',
+    'local_bearer_auth',
 ]
 
 

@@ -25,16 +25,17 @@ import frozendict  # noqa: F401
 
 from firefly_iii_client import schemas  # noqa: F401
 
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
+from firefly_iii_client.model.not_found_response import NotFoundResponse
 from firefly_iii_client.model.preference_array import PreferenceArray
-from firefly_iii_client.model.internal_exception import InternalException
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 
 from . import path
 
 # Query params
-PageSchema = schemas.IntSchema
+LimitSchema = schemas.Int32Schema
+PageSchema = schemas.Int32Schema
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
@@ -43,6 +44,7 @@ RequestRequiredQueryParams = typing_extensions.TypedDict(
 RequestOptionalQueryParams = typing_extensions.TypedDict(
     'RequestOptionalQueryParams',
     {
+        'limit': typing.Union[LimitSchema, decimal.Decimal, int, ],
         'page': typing.Union[PageSchema, decimal.Decimal, int, ],
     },
     total=False
@@ -53,6 +55,12 @@ class RequestQueryParams(RequestRequiredQueryParams, RequestOptionalQueryParams)
     pass
 
 
+request_query_limit = api_client.QueryParameter(
+    name="limit",
+    style=api_client.ParameterStyle.FORM,
+    schema=LimitSchema,
+    explode=True,
+)
 request_query_page = api_client.QueryParameter(
     name="page",
     style=api_client.ParameterStyle.FORM,
@@ -86,6 +94,7 @@ request_header_x_trace_id = api_client.HeaderParameter(
 )
 _auth = [
     'firefly_iii_auth',
+    'local_bearer_auth',
 ]
 SchemaFor200ResponseBodyApplicationVndApijson = PreferenceArray
 
@@ -106,7 +115,7 @@ _response_for_200 = api_client.OpenApiResponse(
             schema=SchemaFor200ResponseBodyApplicationVndApijson),
     },
 )
-SchemaFor400ResponseBodyApplicationJson = BadRequest
+SchemaFor400ResponseBodyApplicationJson = BadRequestResponse
 
 
 @dataclass
@@ -125,7 +134,7 @@ _response_for_400 = api_client.OpenApiResponse(
             schema=SchemaFor400ResponseBodyApplicationJson),
     },
 )
-SchemaFor401ResponseBodyApplicationJson = Unauthenticated
+SchemaFor401ResponseBodyApplicationJson = UnauthenticatedResponse
 
 
 @dataclass
@@ -144,7 +153,7 @@ _response_for_401 = api_client.OpenApiResponse(
             schema=SchemaFor401ResponseBodyApplicationJson),
     },
 )
-SchemaFor404ResponseBodyApplicationJson = NotFound
+SchemaFor404ResponseBodyApplicationJson = NotFoundResponse
 
 
 @dataclass
@@ -163,7 +172,7 @@ _response_for_404 = api_client.OpenApiResponse(
             schema=SchemaFor404ResponseBodyApplicationJson),
     },
 )
-SchemaFor500ResponseBodyApplicationJson = InternalException
+SchemaFor500ResponseBodyApplicationJson = InternalExceptionResponse
 
 
 @dataclass
@@ -255,6 +264,7 @@ class BaseApi(api_client.Api):
 
         prefix_separator_iterator = None
         for parameter in (
+            request_query_limit,
             request_query_page,
         ):
             parameter_data = query_params.get(parameter.name, schemas.unset)

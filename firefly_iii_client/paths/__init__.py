@@ -154,3 +154,4 @@ class PathValues(str, enum.Enum):
     V1_WEBHOOKS_ID_MESSAGES_MESSAGE_ID_ATTEMPTS = "/v1/webhooks/{id}/messages/{messageId}/attempts"
     V1_WEBHOOKS_ID_MESSAGES_MESSAGE_ID_ATTEMPTS_ATTEMPT_ID = "/v1/webhooks/{id}/messages/{messageId}/attempts/{attemptId}"
     V1_WEBHOOKS_ID_SUBMIT = "/v1/webhooks/{id}/submit"
+    V1_WEBHOOKS_ID_TRIGGERTRANSACTION_TRANSACTION_ID = "/v1/webhooks/{id}/trigger-transaction/{transactionId}"

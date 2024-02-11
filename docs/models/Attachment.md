@@ -17,7 +17,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **mime** | str,  | str,  |  | [optional] 
 **notes** | None, str,  | NoneClass, str,  |  | [optional] 
 **size** | decimal.Decimal, int,  | decimal.Decimal,  |  | [optional] value must be a 32 bit integer
-**title** | str,  | str,  |  | [optional] 
+**title** | None, str,  | NoneClass, str,  |  | [optional] 
 **updated_at** | str, datetime,  | str,  |  | [optional] value must conform to RFC-3339 date-time
 **upload_url** | str,  | str,  |  | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]

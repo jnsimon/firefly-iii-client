@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**list_webhook**](#list_webhook) | **get** /v1/webhooks | List all webhooks.
 [**store_webhook**](#store_webhook) | **post** /v1/webhooks | Store a new webhook
 [**submit_webook**](#submit_webook) | **post** /v1/webhooks/{id}/submit | Submit messages for a webhook.
+[**trigger_transaction_webhook**](#trigger_transaction_webhook) | **post** /v1/webhooks/{id}/trigger-transaction/{transactionId} | Trigger webhook for a given transaction.
 [**update_webhook**](#update_webhook) | **put** /v1/webhooks/{id} | Update existing webhook.
 
 # **delete_webhook**
@@ -29,13 +30,14 @@ Delete a webhook.
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import webhooks_api
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
-from firefly_iii_client.model.internal_exception import InternalException
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.not_found_response import NotFoundResponse
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
 # See configuration.py for a list of all supported configuration parameters.
@@ -52,6 +54,11 @@ configuration = firefly_iii_client.Configuration(
 configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
@@ -156,7 +163,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### delete_webhook.ApiResponseFor401
@@ -169,7 +176,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### delete_webhook.ApiResponseFor404
@@ -182,7 +189,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### delete_webhook.ApiResponseFor500
@@ -195,12 +202,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -215,13 +222,14 @@ Delete a webhook message. Any time a webhook is triggered the message is stored 
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import webhooks_api
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
-from firefly_iii_client.model.internal_exception import InternalException
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.not_found_response import NotFoundResponse
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
 # See configuration.py for a list of all supported configuration parameters.
@@ -238,6 +246,11 @@ configuration = firefly_iii_client.Configuration(
 configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
@@ -352,7 +365,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### delete_webhook_message.ApiResponseFor401
@@ -365,7 +378,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### delete_webhook_message.ApiResponseFor404
@@ -378,7 +391,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### delete_webhook_message.ApiResponseFor500
@@ -391,12 +404,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -411,13 +424,14 @@ Delete a webhook message attempt. If you delete all attempts for a webhook messa
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import webhooks_api
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
-from firefly_iii_client.model.internal_exception import InternalException
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.not_found_response import NotFoundResponse
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
 # See configuration.py for a list of all supported configuration parameters.
@@ -434,6 +448,11 @@ configuration = firefly_iii_client.Configuration(
 configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
@@ -558,7 +577,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### delete_webhook_message_attempt.ApiResponseFor401
@@ -571,7 +590,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### delete_webhook_message_attempt.ApiResponseFor404
@@ -584,7 +603,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### delete_webhook_message_attempt.ApiResponseFor500
@@ -597,12 +616,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -617,14 +636,15 @@ When a webhook is triggered it will store the actual content of the webhook in a
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import webhooks_api
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
-from firefly_iii_client.model.internal_exception import InternalException
+from firefly_iii_client.model.not_found_response import NotFoundResponse
 from firefly_iii_client.model.webhook_message_single import WebhookMessageSingle
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
 # See configuration.py for a list of all supported configuration parameters.
@@ -641,6 +661,11 @@ configuration = firefly_iii_client.Configuration(
 configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
@@ -763,7 +788,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### get_single_webhook_message.ApiResponseFor401
@@ -776,7 +801,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### get_single_webhook_message.ApiResponseFor404
@@ -789,7 +814,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### get_single_webhook_message.ApiResponseFor500
@@ -802,12 +827,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -822,14 +847,15 @@ When a webhook message fails to send it will store the failure in an \"attempt\"
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import webhooks_api
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
+from firefly_iii_client.model.not_found_response import NotFoundResponse
 from firefly_iii_client.model.webhook_attempt_single import WebhookAttemptSingle
-from firefly_iii_client.model.internal_exception import InternalException
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
 # See configuration.py for a list of all supported configuration parameters.
@@ -846,6 +872,11 @@ configuration = firefly_iii_client.Configuration(
 configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
@@ -978,7 +1009,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### get_single_webhook_message_attempt.ApiResponseFor401
@@ -991,7 +1022,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### get_single_webhook_message_attempt.ApiResponseFor404
@@ -1004,7 +1035,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### get_single_webhook_message_attempt.ApiResponseFor500
@@ -1017,12 +1048,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1037,14 +1068,15 @@ Gets all info of a single webhook.
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import webhooks_api
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
+from firefly_iii_client.model.not_found_response import NotFoundResponse
 from firefly_iii_client.model.webhook_single import WebhookSingle
-from firefly_iii_client.model.internal_exception import InternalException
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
 # See configuration.py for a list of all supported configuration parameters.
@@ -1061,6 +1093,11 @@ configuration = firefly_iii_client.Configuration(
 configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
@@ -1173,7 +1210,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### get_webhook.ApiResponseFor401
@@ -1186,7 +1223,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### get_webhook.ApiResponseFor404
@@ -1199,7 +1236,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### get_webhook.ApiResponseFor500
@@ -1212,12 +1249,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1232,14 +1269,15 @@ When a webhook message fails to send it will store the failure in an \"attempt\"
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import webhooks_api
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
+from firefly_iii_client.model.not_found_response import NotFoundResponse
 from firefly_iii_client.model.webhook_attempt_array import WebhookAttemptArray
-from firefly_iii_client.model.internal_exception import InternalException
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
 # See configuration.py for a list of all supported configuration parameters.
@@ -1256,6 +1294,11 @@ configuration = firefly_iii_client.Configuration(
 configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
@@ -1288,6 +1331,7 @@ with firefly_iii_client.ApiClient(configuration) as api_client:
         'messageId': 1,
     }
     query_params = {
+        'limit': 10,
         'page': 1,
     }
     header_params = {
@@ -1321,8 +1365,16 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+limit | LimitSchema | | optional
 page | PageSchema | | optional
 
+
+# LimitSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
 # PageSchema
 
@@ -1401,7 +1453,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### get_webhook_message_attempts.ApiResponseFor401
@@ -1414,7 +1466,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### get_webhook_message_attempts.ApiResponseFor404
@@ -1427,7 +1479,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### get_webhook_message_attempts.ApiResponseFor500
@@ -1440,12 +1492,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1460,14 +1512,15 @@ When a webhook is triggered the actual message that will be send is stored in a 
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import webhooks_api
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
-from firefly_iii_client.model.internal_exception import InternalException
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.not_found_response import NotFoundResponse
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
 from firefly_iii_client.model.webhook_message_array import WebhookMessageArray
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
 # See configuration.py for a list of all supported configuration parameters.
@@ -1484,6 +1537,11 @@ configuration = firefly_iii_client.Configuration(
 configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
@@ -1596,7 +1654,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### get_webhook_messages.ApiResponseFor401
@@ -1609,7 +1667,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### get_webhook_messages.ApiResponseFor404
@@ -1622,7 +1680,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### get_webhook_messages.ApiResponseFor500
@@ -1635,12 +1693,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1655,14 +1713,15 @@ List all the user's webhooks.
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import webhooks_api
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
-from firefly_iii_client.model.internal_exception import InternalException
+from firefly_iii_client.model.not_found_response import NotFoundResponse
 from firefly_iii_client.model.webhook_array import WebhookArray
-from firefly_iii_client.model.not_found import NotFound
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
 # See configuration.py for a list of all supported configuration parameters.
@@ -1680,6 +1739,11 @@ configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
 )
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1687,6 +1751,7 @@ with firefly_iii_client.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     query_params = {
+        'limit': 10,
         'page': 1,
     }
     header_params = {
@@ -1718,15 +1783,23 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+limit | LimitSchema | | optional
 page | PageSchema | | optional
 
+
+# LimitSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
 # PageSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int,  | decimal.Decimal,  |  | 
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 
 ### header_params
 #### RequestHeaderParams
@@ -1776,7 +1849,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### list_webhook.ApiResponseFor401
@@ -1789,7 +1862,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### list_webhook.ApiResponseFor404
@@ -1802,7 +1875,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### list_webhook.ApiResponseFor500
@@ -1815,12 +1888,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -1835,16 +1908,17 @@ Creates a new webhook. The data required can be submitted as a JSON body or as a
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import webhooks_api
-from firefly_iii_client.model.validation_error import ValidationError
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
+from firefly_iii_client.model.not_found_response import NotFoundResponse
 from firefly_iii_client.model.webhook_single import WebhookSingle
-from firefly_iii_client.model.internal_exception import InternalException
-from firefly_iii_client.model.not_found import NotFound
 from firefly_iii_client.model.webhook_store import WebhookStore
+from firefly_iii_client.model.validation_error_response import ValidationErrorResponse
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
 # See configuration.py for a list of all supported configuration parameters.
@@ -1861,6 +1935,11 @@ configuration = firefly_iii_client.Configuration(
 configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
@@ -1985,7 +2064,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### store_webhook.ApiResponseFor401
@@ -1998,7 +2077,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### store_webhook.ApiResponseFor404
@@ -2011,7 +2090,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### store_webhook.ApiResponseFor422
@@ -2024,7 +2103,7 @@ headers | Unset | headers were not defined |
 # SchemaFor422ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ValidationError**](../../models/ValidationError.md) |  | 
+[**ValidationErrorResponse**](../../models/ValidationErrorResponse.md) |  | 
 
 
 #### store_webhook.ApiResponseFor500
@@ -2037,12 +2116,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -2057,6 +2136,7 @@ This endpoint will submit any open messages for this webhook. This is an asynchr
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import webhooks_api
@@ -2076,6 +2156,11 @@ configuration = firefly_iii_client.Configuration(
 configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
@@ -2191,31 +2276,25 @@ headers | Unset | headers were not defined |
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **update_webhook**
-<a id="update_webhook"></a>
-> WebhookSingle update_webhook(idwebhook_update)
+# **trigger_transaction_webhook**
+<a id="trigger_transaction_webhook"></a>
+> trigger_transaction_webhook(idtransaction_id)
 
-Update existing webhook.
+Trigger webhook for a given transaction.
 
-Update an existing webhook's information. If you wish to reset the secret, submit any value as the \"secret\". Firefly III will take this as a hint and reset the secret of the webhook.
+This endpoint will execute this webhook for a given transaction ID. This is an asynchronous operation, so you can't see the result. Refresh the webhook message and/or the webhook message attempts to see the results. This may take some time if the webhook receiver is slow.
 
 ### Example
 
 * OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
 ```python
 import firefly_iii_client
 from firefly_iii_client.apis.tags import webhooks_api
-from firefly_iii_client.model.validation_error import ValidationError
-from firefly_iii_client.model.webhook_update import WebhookUpdate
-from firefly_iii_client.model.unauthenticated import Unauthenticated
-from firefly_iii_client.model.bad_request import BadRequest
-from firefly_iii_client.model.webhook_single import WebhookSingle
-from firefly_iii_client.model.internal_exception import InternalException
-from firefly_iii_client.model.not_found import NotFound
 from pprint import pprint
 # Defining the host is optional and defaults to https://demo.firefly-iii.org/api
 # See configuration.py for a list of all supported configuration parameters.
@@ -2232,6 +2311,175 @@ configuration = firefly_iii_client.Configuration(
 configuration = firefly_iii_client.Configuration(
     host = "https://demo.firefly-iii.org/api",
     access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with firefly_iii_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = webhooks_api.WebhooksApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'id': "123",
+        'transactionId': "123",
+    }
+    header_params = {
+    }
+    try:
+        # Trigger webhook for a given transaction.
+        api_response = api_instance.trigger_transaction_webhook(
+            path_params=path_params,
+            header_params=header_params,
+        )
+    except firefly_iii_client.ApiException as e:
+        print("Exception when calling WebhooksApi->trigger_transaction_webhook: %s\n" % e)
+
+    # example passing only optional values
+    path_params = {
+        'id': "123",
+        'transactionId': "123",
+    }
+    header_params = {
+        'X-Trace-Id': "X-Trace-Id_example",
+    }
+    try:
+        # Trigger webhook for a given transaction.
+        api_response = api_instance.trigger_transaction_webhook(
+            path_params=path_params,
+            header_params=header_params,
+        )
+    except firefly_iii_client.ApiException as e:
+        print("Exception when calling WebhooksApi->trigger_transaction_webhook: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+header_params | RequestHeaderParams | |
+path_params | RequestPathParams | |
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### header_params
+#### RequestHeaderParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+X-Trace-Id | XTraceIdSchema | | optional
+
+# XTraceIdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str, uuid.UUID,  | str,  |  | value must be a uuid
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+id | IdSchema | | 
+transactionId | TransactionIdSchema | | 
+
+# IdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# TransactionIdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+204 | [ApiResponseFor204](#trigger_transaction_webhook.ApiResponseFor204) | Webhook triggered successfully.
+404 | [ApiResponseFor404](#trigger_transaction_webhook.ApiResponseFor404) | Webhook or transaction not found.
+500 | [ApiResponseFor500](#trigger_transaction_webhook.ApiResponseFor500) | Error while sending.
+
+#### trigger_transaction_webhook.ApiResponseFor204
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+#### trigger_transaction_webhook.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+#### trigger_transaction_webhook.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+### Authorization
+
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **update_webhook**
+<a id="update_webhook"></a>
+> WebhookSingle update_webhook(idwebhook_update)
+
+Update existing webhook.
+
+Update an existing webhook's information. If you wish to reset the secret, submit any value as the \"secret\". Firefly III will take this as a hint and reset the secret of the webhook.
+
+### Example
+
+* OAuth Authentication (firefly_iii_auth):
+* Bearer Authentication (local_bearer_auth):
+```python
+import firefly_iii_client
+from firefly_iii_client.apis.tags import webhooks_api
+from firefly_iii_client.model.not_found_response import NotFoundResponse
+from firefly_iii_client.model.webhook_update import WebhookUpdate
+from firefly_iii_client.model.webhook_single import WebhookSingle
+from firefly_iii_client.model.validation_error_response import ValidationErrorResponse
+from firefly_iii_client.model.unauthenticated_response import UnauthenticatedResponse
+from firefly_iii_client.model.internal_exception_response import InternalExceptionResponse
+from firefly_iii_client.model.bad_request_response import BadRequestResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://demo.firefly-iii.org/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = firefly_iii_client.Configuration(
+    host = "https://demo.firefly-iii.org/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: firefly_iii_auth
+configuration = firefly_iii_client.Configuration(
+    host = "https://demo.firefly-iii.org/api",
+    access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+# Configure Bearer authorization: local_bearer_auth
+configuration = firefly_iii_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 # Enter a context with an instance of the API client
 with firefly_iii_client.ApiClient(configuration) as api_client:
@@ -2381,7 +2629,7 @@ headers | Unset | headers were not defined |
 # SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BadRequest**](../../models/BadRequest.md) |  | 
+[**BadRequestResponse**](../../models/BadRequestResponse.md) |  | 
 
 
 #### update_webhook.ApiResponseFor401
@@ -2394,7 +2642,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Unauthenticated**](../../models/Unauthenticated.md) |  | 
+[**UnauthenticatedResponse**](../../models/UnauthenticatedResponse.md) |  | 
 
 
 #### update_webhook.ApiResponseFor404
@@ -2407,7 +2655,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NotFound**](../../models/NotFound.md) |  | 
+[**NotFoundResponse**](../../models/NotFoundResponse.md) |  | 
 
 
 #### update_webhook.ApiResponseFor422
@@ -2420,7 +2668,7 @@ headers | Unset | headers were not defined |
 # SchemaFor422ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ValidationError**](../../models/ValidationError.md) |  | 
+[**ValidationErrorResponse**](../../models/ValidationErrorResponse.md) |  | 
 
 
 #### update_webhook.ApiResponseFor500
@@ -2433,12 +2681,12 @@ headers | Unset | headers were not defined |
 # SchemaFor500ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InternalException**](../../models/InternalException.md) |  | 
+[**InternalExceptionResponse**](../../models/InternalExceptionResponse.md) |  | 
 
 
 ### Authorization
 
-[firefly_iii_auth](../../../README.md#firefly_iii_auth)
+[firefly_iii_auth](../../../README.md#firefly_iii_auth), [local_bearer_auth](../../../README.md#local_bearer_auth)
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 

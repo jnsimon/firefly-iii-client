@@ -149,6 +149,7 @@ from firefly_iii_client.apis.paths.v1_webhooks_id_messages_message_id import V1W
 from firefly_iii_client.apis.paths.v1_webhooks_id_messages_message_id_attempts import V1WebhooksIdMessagesMessageIdAttempts
 from firefly_iii_client.apis.paths.v1_webhooks_id_messages_message_id_attempts_attempt_id import V1WebhooksIdMessagesMessageIdAttemptsAttemptId
 from firefly_iii_client.apis.paths.v1_webhooks_id_submit import V1WebhooksIdSubmit
+from firefly_iii_client.apis.paths.v1_webhooks_id_trigger_transaction_transaction_id import V1WebhooksIdTriggerTransactionTransactionId
 
 PathToApi = typing_extensions.TypedDict(
     'PathToApi',
@@ -301,6 +302,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.V1_WEBHOOKS_ID_MESSAGES_MESSAGE_ID_ATTEMPTS: V1WebhooksIdMessagesMessageIdAttempts,
         PathValues.V1_WEBHOOKS_ID_MESSAGES_MESSAGE_ID_ATTEMPTS_ATTEMPT_ID: V1WebhooksIdMessagesMessageIdAttemptsAttemptId,
         PathValues.V1_WEBHOOKS_ID_SUBMIT: V1WebhooksIdSubmit,
+        PathValues.V1_WEBHOOKS_ID_TRIGGERTRANSACTION_TRANSACTION_ID: V1WebhooksIdTriggerTransactionTransactionId,
     }
 )
 
@@ -454,5 +456,6 @@ path_to_api = PathToApi(
         PathValues.V1_WEBHOOKS_ID_MESSAGES_MESSAGE_ID_ATTEMPTS: V1WebhooksIdMessagesMessageIdAttempts,
         PathValues.V1_WEBHOOKS_ID_MESSAGES_MESSAGE_ID_ATTEMPTS_ATTEMPT_ID: V1WebhooksIdMessagesMessageIdAttemptsAttemptId,
         PathValues.V1_WEBHOOKS_ID_SUBMIT: V1WebhooksIdSubmit,
+        PathValues.V1_WEBHOOKS_ID_TRIGGERTRANSACTION_TRANSACTION_ID: V1WebhooksIdTriggerTransactionTransactionId,
     }
 )

@@ -3,12 +3,12 @@
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  | 
+dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
-### Tuple Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[**BasicSummaryEntry**](BasicSummaryEntry.md) | [**BasicSummaryEntry**](BasicSummaryEntry.md) | [**BasicSummaryEntry**](BasicSummaryEntry.md) |  | 
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**BasicSummaryEntry**](BasicSummaryEntry.md) | [**BasicSummaryEntry**](BasicSummaryEntry.md) | any string name can be used but the value must be the correct type | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

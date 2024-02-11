@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1DataBulkTransactions(ApiTestMixin, unittest.TestCase):
     """
     V1DataBulkTransactions unit test stubs
-        Bulk update transaction properties. For more information, see https://docs.firefly-iii.org/firefly-iii/api/specials  # noqa: E501
+        Bulk update transaction properties. For more information, see https://docs.firefly-iii.org/references/firefly-iii/api/specials/  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

@@ -19,8 +19,8 @@ Key | Input Type | Accessed Type | Description | Notes
 **currency_decimal_places** | decimal.Decimal, int,  | decimal.Decimal,  |  | [optional] value must be a 32 bit integer
 **currency_id** | str,  | str,  | Use either currency_id or currency_code | [optional] 
 **currency_symbol** | str,  | str,  |  | [optional] 
-**end_date** | str, datetime,  | str,  | The date after which this bill is no longer valid or applicable | [optional] value must conform to RFC-3339 date-time
-**extension_date** | str, datetime,  | str,  | The date before which the bill must be renewed (or cancelled) | [optional] value must conform to RFC-3339 date-time
+**end_date** | None, str, datetime,  | NoneClass, str,  | The date after which this bill is no longer valid or applicable | [optional] value must conform to RFC-3339 date-time
+**extension_date** | None, str, datetime,  | NoneClass, str,  | The date before which the bill must be renewed (or cancelled) | [optional] value must conform to RFC-3339 date-time
 **next_expected_match** | None, str, datetime,  | NoneClass, str,  | When the bill is expected to be due. | [optional] value must conform to RFC-3339 date-time
 **next_expected_match_diff** | None, str,  | NoneClass, str,  | Formatted (locally) when the bill is due. | [optional] 
 **notes** | None, str,  | NoneClass, str,  |  | [optional] 

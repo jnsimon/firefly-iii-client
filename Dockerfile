@@ -7,4 +7,4 @@ RUN apt update && \
    mkdir /build && \
    chmod 777 /build
 
-ENTRYPOINT ["/generator/generate.sh" ]
+ENTRYPOINT ["/generator/postgenerate.sh" ]

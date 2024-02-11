@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestV1TransactionsId(ApiTestMixin, unittest.TestCase):
     """
     V1TransactionsId unit test stubs
-        Update existing transaction. For more information, see https://docs.firefly-iii.org/firefly-iii/api/specials  # noqa: E501
+        Update existing transaction. For more information, see https://docs.firefly-iii.org/references/firefly-iii/api/specials/  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

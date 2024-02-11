@@ -52,7 +52,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **process_date** | None, str, datetime,  | NoneClass, str,  |  | [optional] value must conform to RFC-3339 date-time
 **reconciled** | bool,  | BoolClass,  | If the transaction has been reconciled already. When you set this, the amount can no longer be edited by the user. | [optional] 
 **recurrence_count** | None, decimal.Decimal, int,  | NoneClass, decimal.Decimal,  | The # of the current transaction created under this recurrence. | [optional] value must be a 32 bit integer
-**recurrence_id** | None, decimal.Decimal, int,  | NoneClass, decimal.Decimal,  | Reference to recurrence that made the transaction. | [optional] value must be a 32 bit integer
+**recurrence_id** | None, str,  | NoneClass, str,  | Reference to recurrence that made the transaction. | [optional] 
 **recurrence_total** | None, decimal.Decimal, int,  | NoneClass, decimal.Decimal,  | Total number of transactions expected to be created by this recurrence repetition. Will be 0 if infinite. | [optional] value must be a 32 bit integer
 **sepa_batch_id** | None, str,  | NoneClass, str,  | SEPA Batch ID | [optional] 
 **sepa_cc** | None, str,  | NoneClass, str,  | SEPA Clearing Code | [optional] 

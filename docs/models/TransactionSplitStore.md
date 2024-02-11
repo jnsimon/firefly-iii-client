@@ -36,8 +36,8 @@ Key | Input Type | Accessed Type | Description | Notes
 **notes** | None, str,  | NoneClass, str,  |  | [optional] 
 **order** | None, decimal.Decimal, int,  | NoneClass, decimal.Decimal,  | Order of this entry in the list of transactions. | [optional] value must be a 32 bit integer
 **payment_date** | None, str, datetime,  | NoneClass, str,  |  | [optional] value must conform to RFC-3339 date-time
-**piggy_bank_id** | decimal.Decimal, int,  | decimal.Decimal,  | Optional. Use either this or the piggy_bank_name | [optional] value must be a 32 bit integer
-**piggy_bank_name** | str,  | str,  | Optional. Use either this or the piggy_bank_id | [optional] 
+**piggy_bank_id** | None, decimal.Decimal, int,  | NoneClass, decimal.Decimal,  | Optional. Use either this or the piggy_bank_name | [optional] value must be a 32 bit integer
+**piggy_bank_name** | None, str,  | NoneClass, str,  | Optional. Use either this or the piggy_bank_id | [optional] 
 **process_date** | None, str, datetime,  | NoneClass, str,  |  | [optional] value must conform to RFC-3339 date-time
 **reconciled** | bool,  | BoolClass,  | If the transaction has been reconciled already. When you set this, the amount can no longer be edited by the user. | [optional] 
 **sepa_batch_id** | None, str,  | NoneClass, str,  | SEPA Batch ID | [optional] 
